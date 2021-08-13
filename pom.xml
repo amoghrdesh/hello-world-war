@@ -7,6 +7,17 @@
 	<packaging>war</packaging>
 	<name>Hello World Web Application Repository</name>
 	<description>Simplest possible Java Webapp</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.sources>pom.xml,src/main/java</sonar.sources>
+		<sonar.tests>src/test</sonar.tests>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+  	</properties>
+
 
 	<build>
 		<plugins>
@@ -23,6 +34,12 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 			</plugin>
+			<plugin>
+			      <groupId>org.sonarsource.scanner.maven</groupId>
+			      <artifactId>sonar-maven-plugin</artifactId>
+			      <version>3.4.0.905</version>
+  			</plugin>
+
 		</plugins>
 	</build>
 
